@@ -31,10 +31,17 @@ class InitialSetup extends React.Component{
 
 	componentDidMount(){
 		this.props.uiActions.setWindowTitle("Welcome to Iris");
+
+		//Load Iris with all default values
+		setTimeout(() => {
+			this.handleSubmit();
+		}, 2000);
 	}
 
-	handleSubmit(e){
-		e.preventDefault();
+	handleSubmit(e=undefined){
+		if(e){
+			e.preventDefault();
+		}
 		var self = this;
 
 		// Force local username change, even if remote connection absent/failed
